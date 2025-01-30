@@ -156,13 +156,6 @@ export default function Home() {
           font-[family-name:var(--font-geist-mono)]"
             onClick={generatePassword}
           >
-            {/* <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            /> */}
             Generate Passwords
           </button>
         </div>
@@ -171,7 +164,7 @@ export default function Home() {
         <div className="flex flex-row justify-start gap-4 w-full relative">
           <div className="flex flex-col gap-2">
             <div
-              className={`rounded-md flex items-center justify-center h-8 min-w-fit p-4 sm:p-5 bg-slate-700 
+              className={`rounded-md flex items-center h-8 w-auto p-4 sm:p-5 bg-slate-700 
               hover:cursor-pointer ${wiggleForPassword ? "wiggle" : ""}`}
               onClick={copyToClipboard}
             >
@@ -189,7 +182,7 @@ export default function Home() {
           {/* Second Password */}
           <div className="flex flex-col gap-2">
             <div
-              className={`rounded-md flex items-center justify-center h-8 min-w-fit p-4 sm:p-5 bg-slate-700 
+              className={`rounded-md flex items-center h-8 w-auto p-4 sm:p-5 bg-slate-700 
               hover:cursor-pointer ${wiggleForAltPassword ? "wiggle" : ""}`}
               onClick={copyToClipboardAlt}
             >
