@@ -137,67 +137,69 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[10px_1fr_20px] items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-mono)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-4xl text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          Quick and Easy{" "}
-          <span className="text-purple-600"> Password Generator</span>
-        </h1>
+    <>
+      <div className="grid grid-rows-[10px_1fr_20px] items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-mono)]">
+        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+          <h1 className="text-4xl text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+            Quick and Easy{" "}
+            <span className="text-purple-600"> Password Generator</span>
+          </h1>
 
-        <h2 className="text-xl text-center  font-[family-name:var(--font-geist-mono)]">
-          Click the button and take your pick!
-        </h2>
+          <h2 className="text-xl text-center  font-[family-name:var(--font-geist-mono)]">
+            Click the button and take your pick!
+          </h2>
 
-        <div className="flex items-center flex-col sm:flex-row">
-          <button
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center 
+          <div className="flex items-center flex-col sm:flex-row">
+            <button
+              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center 
           bg-purple-700 text-white gap-2 hover:bg-[#383838] dark:hover:bg-purple-600 text-sm 
           sm:text-base h-10 sm:h-12 px-4 sm:px-5
           font-[family-name:var(--font-geist-mono)]"
-            onClick={generatePassword}
-          >
-            Generate Passwords
-          </button>
-        </div>
+              onClick={generatePassword}
+            >
+              Generate Passwords
+            </button>
+          </div>
 
-        {/* First Password */}
-        <div className="flex flex-row justify-start gap-4 w-full relative">
-          <div className="flex flex-col gap-2">
-            <div
-              className={`rounded-md flex items-center h-8 w-auto p-4 sm:p-5 bg-slate-700 
+          {/* First Password */}
+          <div className="flex flex-col sm:flex-row items-center sm:justify-start gap-4 w-full relative">
+            <div className="flex flex-col gap-2">
+              <div
+                className={`rounded-md flex items-center h-8 w-fit sm:w-auto p-4 sm:p-5 bg-slate-700 
               hover:cursor-pointer ${wiggleForPassword ? "wiggle" : ""}`}
-              onClick={copyToClipboard}
-            >
-              {password}
+                onClick={copyToClipboard}
+              >
+                {password}
+              </div>
+              <div
+                className={`text-xs ${
+                  isCopied ? "pop-in" : "fade-out"
+                } absolute top-[-12px] sm:top-10`}
+              >
+                Copied!
+              </div>
             </div>
-            <div
-              className={`text-xs ${
-                isCopied ? "pop-in" : "fade-out"
-              } absolute top-10`}
-            >
-              Copied!
-            </div>
-          </div>
 
-          {/* Second Password */}
-          <div className="flex flex-col gap-2">
-            <div
-              className={`rounded-md flex items-center h-8 w-auto p-4 sm:p-5 bg-slate-700 
+            {/* Second Password */}
+            <div className="flex flex-col gap-2">
+              <div
+                className={`rounded-md flex items-center h-8 w-fit sm:w-auto p-4 sm:p-5 bg-slate-700 
               hover:cursor-pointer ${wiggleForAltPassword ? "wiggle" : ""}`}
-              onClick={copyToClipboardAlt}
-            >
-              {altPassword}
-            </div>
-            <div
-              className={`text-xs ${
-                isCopiedAlt ? "pop-in" : "fade-out"
-              } absolute top-10`}
-            >
-              Copied!
+                onClick={copyToClipboardAlt}
+              >
+                {altPassword}
+              </div>
+              <div
+                className={`text-xs ${
+                  isCopiedAlt ? "pop-in" : "fade-out"
+                } absolute bottom-[-12px] sm:top-10`}
+              >
+                Copied!
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 }
